@@ -1,0 +1,54 @@
+{
+  "require" : {  
+	"s0d3s/tg-long-req": ">=1"   
+  }
+}
+include_once('path/to/autoload.php');
+use TgLongReq\TgLongReq;
+
+function SOMTH($tg_res, $long_req_obj, $tab_key){
+	echo "EveryForEveryone";
+	return;
+}
+
+$BOT_FUNC_ASSO_TAB = arrray("ECHO_SOMETHING" => "SOMTH"); //Ключ - используется при создании запроса на запрос, значение - имя ф-ции\обработчика запросов
+
+$tgreq = new TgLongReq	(	
+					$usr_id,				//(STR)Уникальный телеграмм-id юзера
+					$BOT_FUNC_ASSO_TAB,	//(ARRAY)
+					$BOT_req_dir , 			//[OPT](STR)
+					$tapi,  				//[OPT](ANY*) 
+					$result				//[OPT](ANY**)
+					);
+// * доп параметр, можно получить через $this->tg_api
+// ** доп параметр, первый параметр в обработчике запросов
+
+$tgreq -> ReqCreate('SOMTH');//создаём запрос
+	if($tgreq -> ReqCheck()){
+		//если существует, то запускаем обработчик, в нашем случае запрос всегда существует
+		$tgreq -> ReqHand();//запускает функцию, соответствующею запросу
+	}
+$tgreq -> SaveToTemp('HiHabr');//Принимает любые данные, сохраняет в виде json-строки
+$tgreq -> GetFromTemp(false);//если истина - временный файл не удаляется, по умолчанию ложь
+//возвращает переменную, сохранённую с помощью SaveToTemp()
+
+/*$function_result = array(	
+		'func_res'		=>возвращаемое функцией значение	
+		'error'		=>true, если была ошибка
+		'err_discript'	=>описание ошибки, существует если была ошибка
+		);	
+	*/
+
+$error_arr = $tgreq -> GetError();
+	/*$error_arr = array(
+		'error'		=>true, если была ошибка
+		'err_discript'	=>описание ошибки, существует если была ошибка
+		);	
+	*/
+{
+  "require" : {  
+	"irazasyed/telegram-bot-sdk": ">=3",
+	"s0d3s/tg-long-req": ">=1",
+	"php":">=7.1"    
+  }
+}
