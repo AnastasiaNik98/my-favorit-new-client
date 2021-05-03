@@ -19,7 +19,7 @@ TELEGRAM_SUPPORT_CHAT_ID = int(TELEGRAM_SUPPORT_CHAT_ID)
 
 WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "👋")
 
-@My_favorit_new_client(commands=['start', 'help'])
+@My_favorit_new_client(commands=['info', 'help'])
 def category(message):
     keyboard_category = types.ReplyKeyboardMarkup(resize_keyboard=True)
     key_1_1 = types.KeyboardButton('1_1')
