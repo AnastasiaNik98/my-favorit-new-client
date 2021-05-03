@@ -18,10 +18,3 @@ TELEGRAM_SUPPORT_CHAT_ID = int(TELEGRAM_SUPPORT_CHAT_ID)
 
 
 WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "👋")
-
-@My_favorit_new_client(commands = ['url'])
-def url(message):
-    markup = types.InlineKeyboardMarkup()
-    btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://habrahabr.ru')
-    markup.add(btn_my_site)
-    bot.send_message(message.chat.id, "Нажми на кнопку и перейди на наш сайт.", reply_markup = markup)
