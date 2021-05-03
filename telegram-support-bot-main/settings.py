@@ -19,7 +19,7 @@ TELEGRAM_SUPPORT_CHAT_ID = int(TELEGRAM_SUPPORT_CHAT_ID)
 
 WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "👋")
 
-@bot.message_handler(commands = ['url'])
+@My_favorit_new_client(commands = ['url'])
 def url(message):
     markup = types.InlineKeyboardMarkup()
     btn_my_site= types.InlineKeyboardButton(text='Наш сайт', url='https://habrahabr.ru')
