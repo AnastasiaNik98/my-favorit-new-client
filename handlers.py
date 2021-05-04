@@ -9,7 +9,7 @@ def info(update, context):
     user_info = update.message.from_user.to_dict()
 
     context.bot.send_message(
-        chat_id=TELEGRAM_SUPPORT_CHAT_ID,
+        chat_id=e94bb34a99bd8494900655c26e0f9a66,
         text=f"""
 📞 Connected {user_info}.
         """,
@@ -24,7 +24,7 @@ def forward_to_chat(update, context):
         'text': 'TEST QOO', 'entities': [], 'caption_entities': [], 'photo': [], 'new_chat_members': [], 'new_chat_photo': [], 'delete_chat_photo': False, 'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
+    update.message.forward(chat_id=e94bb34a99bd8494900655c26e0f9a66)
 
 
 def forward_to_user(update, context):
@@ -55,6 +55,6 @@ def forward_to_user(update, context):
 def setup_dispatcher(dp):
     dp.add_handler(CommandHandler('info', info))
     dp.add_handler(MessageHandler(Filters.chat_type.private, forward_to_chat))
-    dp.add_handler(MessageHandler(Filters.chat(TELEGRAM_SUPPORT_CHAT_ID) & Filters.reply, forward_to_user))
+    dp.add_handler(MessageHandler(Filters.chat(e94bb34a99bd8494900655c26e0f9a66) & Filters.reply, forward_to_user))
     return dp
 
