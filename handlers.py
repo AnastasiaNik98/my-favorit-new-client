@@ -58,3 +58,7 @@ def setup_dispatcher(dp):
     dp.add_handler(MessageHandler(Filters.chat(e94bb34a99bd8494900655c26e0f9a66) & Filters.reply, forward_to_user))
     return dp
 
+@bot.message_handler(func=lambda message: messages.text == u'Button 1') #Если была вызвана Button 1
+#Тут пишем метод который будет выполнятся, когда нажмём на кнопку
+def button(message):
+     bot.send_message(chat_id, 'Сюда пишем текст типо - Привет')
