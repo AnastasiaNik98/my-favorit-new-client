@@ -2,8 +2,10 @@ import os
 from telegram.ext import CommandHandler, MessageHandler, Filters
 
 from settings import WELCOME_MESSAGE, TELEGRAM_SUPPORT_CHAT_ID
-
-def start(update, context):
+var TelegramBot = require('My_favorit_new_client');
+var bot = new TelegramBot(telegramToken, { polling: true });
+bot.on("polling_error", (m) => console.log(m));
+def info(update, context):
     update.message.reply_text(WELCOME_MESSAGE)
 
     user_info = update.message.from_user.to_dict()
@@ -53,7 +55,70 @@ def forward_to_user(update, context):
 
 
 def setup_dispatcher(dp):
-    dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('info', info))
     dp.add_handler(MessageHandler(Filters.chat_type.private, forward_to_chat))
     dp.add_handler(MessageHandler(Filters.chat(TELEGRAM_SUPPORT_CHAT_ID) & Filters.reply, forward_to_user))
     return dp
+
+
+bot.sendMessage(clientId, 'Привет, хабр!', messageOptions);
+var messageOptions = {
+    parse_mode: "HTML",
+    disable_web_page_preview: false,
+    reply_markup: JSON.stringify({
+        inline_keyboard: [[{
+            text: 'Название кнопки',
+            callback_data: 'do_something'
+        }]]
+    })
+}
+bot.onText(new RegExp('\/start'), function (message, match) {
+    // вытаскиваем id клиента из пришедшего сообщения
+    var clientId = message.hasOwnProperty('chat') ? message.chat.id : message.from.id;
+    // посылаем ответное сообщение
+    bot.sendMessage(clientId, 'Some message', messageOptions);
+});
+bot.on('callback_query', function (message) {
+    var clientId = message.hasOwnProperty('chat') ? message.chat.id : message.from.id;
+    // То что мы записали в callback_data у кнопок приходит в message.data
+    if(message.data === 'do_something'){
+        bot.sendMessage(clientId, 'Button clicked!', messageOptions);
+    }
+});
+function buildDefaultButton(text, callback_data) {
+    return [{
+        text: text,
+        callback_data: callback_data
+    }]
+}
+
+function buildUrlButton(text, url) {
+    return [{
+        text: text,
+        url: url
+    }]
+}
+
+function buildShareButton(text, shareUrl) {
+    return [{
+        text: text,
+        url: 'https://telegram.me/share/url?url=' + shareUrl
+    }]
+}
+
+function buildMessageOptions(buttons) {
+    return {
+        parse_mode: "HTML",
+        disable_web_page_preview: false,
+        reply_markup: JSON.stringify({
+            inline_keyboard: buttons
+        })
+    }
+}
+var buttons = [
+    botUtils.buildDefaultButton('Кнопка', 'button1'),
+    botUtils.buildShareButton('Поделиться', 'url'),
+    botUtils.buildUrlButton('Ссылка', 'link')
+];
+
+var messageOptions = botUtils.buildMessageOptions(buttons);
