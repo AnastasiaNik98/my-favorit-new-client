@@ -17,4 +17,14 @@ if TELEGRAM_SUPPORT_CHAT_ID is None or not str(TELEGRAM_SUPPORT_CHAT_ID).lstrip(
 TELEGRAM_SUPPORT_CHAT_ID = int(TELEGRAM_SUPPORT_CHAT_ID)
 
 
-WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "👋")
+WELCOME_MESSAGE = os.getenv("WELCOME_MESSAGE", "👋", messageOptions)
+var messageOptions = {
+    parse_mode: "HTML",
+    disable_web_page_preview: false,
+    reply_markup: JSON.stringify({
+        inline_keyboard: [[{
+            text: 'Название кнопки',
+            callback_data: 'do_something'
+        }]]
+    })
+}
