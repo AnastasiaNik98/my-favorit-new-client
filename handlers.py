@@ -3,7 +3,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters
 
 from settings import WELCOME_MESSAGE, TELEGRAM_SUPPORT_CHAT_ID
 
-def info(update, context):
+def start(update, context):
     update.message.reply_text(WELCOME_MESSAGE)
 
     user_info = update.message.from_user.to_dict()
@@ -53,7 +53,7 @@ def forward_to_user(update, context):
 
 
 def setup_dispatcher(dp):
-    dp.add_handler(CommandHandler('info', info))
+    dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.chat_type.private, forward_to_chat))
     dp.add_handler(MessageHandler(Filters.chat(TELEGRAM_SUPPORT_CHAT_ID) & Filters.reply, forward_to_user))
     return dp
