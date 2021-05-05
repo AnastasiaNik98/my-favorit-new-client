@@ -1,22 +1,22 @@
 {
-    "name": "telegram-support-bot",
+    "name": "my-favorit-new-client",
     "version": "2.0.0",
     "description": "Telegram Support Bot",
     "license": "GPL-3.0",
-    "author": "bostrot <eric@bostrot.com>",
-    "homepage": "https://bostrot.com",
+    "author": "",
+    "homepage": "",
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/bostrot/telegram-support-bot.git"
+        "url": "https://github.com/AnastasiaNik98/my-favorit-new-client"
     },
     "bugs": {
-        "url": "https://github.com/bostrot/telegram-support-bot/issues"
+        "url": "https://github.com/AnastasiaNik98/my-favorit-new-client"
     },
-    "main": "build/src/index.js",
+    "main": "/src/index.js",
     "scripts": {
         "tsc": "tsc",
         "dev": "ts-node-dev ./src/index.ts",
-        "prod": "tsc && node ./build/src/index.js"
+        "prod": "tsc && node ./src/index.js"
     },
     "engines": {
         "node": ">=6.2.0"
