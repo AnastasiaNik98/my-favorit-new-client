@@ -1,0 +1,27 @@
+{
+  "name": "instalator-telegram",
+  "description": "Telegram bot to promote accounts in instagram",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEV=true node index.js",
+    "start": "pm2 start index.js --name instalator -e err.log",
+    "stop": "pm2 stop instalator"
+  },
+  "keywords": [
+    "instagram bot",
+    "followers",
+    "telegram bot"
+  ],
+  "author": "hazratgs",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "instagram-private-api": "^0.6.8",
+    "mongoose": "^5.4.2",
+    "node-cron": "^2.0.3",
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}
