@@ -1,8 +1,8 @@
 version: '3'
 services:
-  supportbot:AnastasiaNik98/my-favorit-new-client:
+  supportbot:
     # build: .
-    image: "latest"
+    image: "bostrot/telegram-support-bot:latest"
     restart: unless-stopped
     volumes:
-      - ${PWD}/config:/my-favorit-new-client/config
+      - ${PWD}/config:/telegram-support-bot/config
