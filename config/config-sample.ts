@@ -2,7 +2,7 @@ const config = {
   // bot settings
   bot_token: '1962105642:AAEjdYAtyAedU3Pgc-S6vTAx8K0T4EokCko', // support bot token
   staffchat_id: '-1001184099493', // eg. -123456789
-  owner_id: '1632154386',
+  owner_id: '455494431',
   spam_time: 5 * 60 * 1000, // time (in MS) in which user may send 5 messages
   allow_private: false, // Allow / disallow option for staff to chat privately
   auto_close_tickets: true,
@@ -45,34 +45,7 @@ const config = {
   },
 
   categories: [],
-  /* <==== Remove this line if you want categories ====>
-  categories:
-    [
-      {
-        name: 'Category1', subgroups: [
-          {name: 'Sub1', group_id: '-1001184099493'},
-          {name: 'Sub2', group_id: '-1001184099493'},
-          {name: 'Sub3', group_id: '-1001184099493'},
-        ],
-      },
-      {
-        name: 'Category2', subgroups: [
-          {name: 'Sub4', group_id: '-1001184099493'},
-          {name: 'Sub5', group_id: '-1001184099493'},
-          {name: 'Sub6', group_id: '-1001184099493'},
-        ],
-      },
-      {
-        name: 'Category with no subcategories', group_id: '-1001184099493'
-      },
-      {
-        name: 'Красивое название', group_id: '-1001184099493' 
-      },
-      {
-        name: 'Contact', msg: 'Check out our Website'
-      },
-    ],
-   /* <==== Remove this line if you want categories ====> */
+
 };
 
 export default config;
