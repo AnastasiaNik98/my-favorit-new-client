@@ -2,7 +2,7 @@ const config = {
   // bot settings
   bot_token: '1962105642:AAEjdYAtyAedU3Pgc-S6vTAx8K0T4EokCko', // support bot token
   staffchat_id: '-486300008', // eg. -123456789
-  owner_id: '932253281',
+  owner_id: '455494431',
   spam_time: 5 * 60 * 1000, // time (in MS) in which user may send 5 messages
   allow_private: false, // Allow / disallow option for staff to chat privately
   auto_close_tickets: true,
